@@ -1,0 +1,237 @@
+{
+  "native_size": 180,
+  "scale": 6,
+  "grid": {
+    "cols": 5,
+    "rows": 3
+  },
+  "bed_rect": [
+    10,
+    70,
+    169,
+    141
+  ],
+  "cell_size": [
+    32,
+    20
+  ],
+  "slots": [
+    {
+      "id": 1,
+      "row": 0,
+      "col": 0,
+      "cell_xy": [
+        10,
+        80
+      ],
+      "anchor": [
+        26,
+        90
+      ]
+    },
+    {
+      "id": 2,
+      "row": 0,
+      "col": 1,
+      "cell_xy": [
+        42,
+        80
+      ],
+      "anchor": [
+        58,
+        90
+      ]
+    },
+    {
+      "id": 3,
+      "row": 0,
+      "col": 2,
+      "cell_xy": [
+        74,
+        80
+      ],
+      "anchor": [
+        90,
+        90
+      ]
+    },
+    {
+      "id": 4,
+      "row": 0,
+      "col": 3,
+      "cell_xy": [
+        106,
+        80
+      ],
+      "anchor": [
+        122,
+        90
+      ]
+    },
+    {
+      "id": 5,
+      "row": 0,
+      "col": 4,
+      "cell_xy": [
+        138,
+        80
+      ],
+      "anchor": [
+        154,
+        90
+      ]
+    },
+    {
+      "id": 6,
+      "row": 1,
+      "col": 0,
+      "cell_xy": [
+        10,
+        100
+      ],
+      "anchor": [
+        26,
+        110
+      ]
+    },
+    {
+      "id": 7,
+      "row": 1,
+      "col": 1,
+      "cell_xy": [
+        42,
+        100
+      ],
+      "anchor": [
+        58,
+        110
+      ]
+    },
+    {
+      "id": 8,
+      "row": 1,
+      "col": 2,
+      "cell_xy": [
+        74,
+        100
+      ],
+      "anchor": [
+        90,
+        110
+      ]
+    },
+    {
+      "id": 9,
+      "row": 1,
+      "col": 3,
+      "cell_xy": [
+        106,
+        100
+      ],
+      "anchor": [
+        122,
+        110
+      ]
+    },
+    {
+      "id": 10,
+      "row": 1,
+      "col": 4,
+      "cell_xy": [
+        138,
+        100
+      ],
+      "anchor": [
+        154,
+        110
+      ]
+    },
+    {
+      "id": 11,
+      "row": 2,
+      "col": 0,
+      "cell_xy": [
+        10,
+        120
+      ],
+      "anchor": [
+        26,
+        130
+      ]
+    },
+    {
+      "id": 12,
+      "row": 2,
+      "col": 1,
+      "cell_xy": [
+        42,
+        120
+      ],
+      "anchor": [
+        58,
+        130
+      ]
+    },
+    {
+      "id": 13,
+      "row": 2,
+      "col": 2,
+      "cell_xy": [
+        74,
+        120
+      ],
+      "anchor": [
+        90,
+        130
+      ]
+    },
+    {
+      "id": 14,
+      "row": 2,
+      "col": 3,
+      "cell_xy": [
+        106,
+        120
+      ],
+      "anchor": [
+        122,
+        130
+      ]
+    },
+    {
+      "id": 15,
+      "row": 2,
+      "col": 4,
+      "cell_xy": [
+        138,
+        120
+      ],
+      "anchor": [
+        154,
+        130
+      ]
+    }
+  ],
+  "initial_active": [
+    7,
+    8,
+    9
+  ],
+  "expansion_order": [
+    6,
+    10,
+    13,
+    12,
+    14,
+    11,
+    15,
+    3,
+    2,
+    4,
+    1,
+    5
+  ],
+  "draw_order": "row 0 -> row 2, left -> right (back to front). Large sprites last within their row",
+  "sprite_rule": "sprite bottom-center = slot anchor. Normal 32x32, tall 32x48 (sunflower), large 48x48 (rafflesia, black-hole flower, mold) may overlap neighbours by up to 8px",
+  "hud_y": 148
+}
