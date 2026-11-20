@@ -1,9 +1,148 @@
 {
-  "league_start": "2026-11-21",
+  "alerts_for_owner": [],
   "gardens": {
-    "x":         {"day": 0, "sunlight": 0, "water": 0, "nutrition": 0, "health": 50, "stage": "soil", "flowers": [], "last_post_url": null},
-    "instagram": {"day": 0, "sunlight": 0, "water": 0, "nutrition": 0, "health": 50, "stage": "soil", "flowers": [], "last_post_url": null},
-    "threads":   {"day": 0, "sunlight": 0, "water": 0, "nutrition": 0, "health": 50, "stage": "soil", "flowers": [], "last_post_url": null}
+    "instagram": {
+      "blooms_total": 0,
+      "day": 0,
+      "fence": "sunset_wood",
+      "handle": "@fieldofw0rds",
+      "health": 50,
+      "last_post_at": "2026-11-20T15:51:17Z",
+      "last_post_url": "https://www.instagram.com/fieldofw0rds/",
+      "milestones": {
+        "butterfly": false,
+        "rainbow": false
+      },
+      "plot_count": 3,
+      "plots": [
+        {
+          "id": 1,
+          "kind": "empty"
+        },
+        {
+          "id": 2,
+          "kind": "empty"
+        },
+        {
+          "id": 3,
+          "kind": "empty"
+        }
+      ],
+      "purify_pool": 0,
+      "sky": 0,
+      "sun_level": 1,
+      "totals": {
+        "impressions": 0,
+        "likes": 0,
+        "new_followers": 0,
+        "reposts": 0,
+        "saves": 0
+      },
+      "unavailable_metrics": [],
+      "yesterday_tally": {
+        "excluded": 0,
+        "neutral": 0,
+        "out_of_scope": 0,
+        "prickly": 0,
+        "soft": 0
+      }
+    },
+    "threads": {
+      "blooms_total": 0,
+      "day": 0,
+      "fence": "white_black_corner",
+      "handle": "@fieldofw0rds",
+      "health": 50,
+      "last_post_at": null,
+      "last_post_url": null,
+      "milestones": {
+        "butterfly": false,
+        "rainbow": false
+      },
+      "plot_count": 3,
+      "plots": [
+        {
+          "id": 1,
+          "kind": "empty"
+        },
+        {
+          "id": 2,
+          "kind": "empty"
+        },
+        {
+          "id": 3,
+          "kind": "empty"
+        }
+      ],
+      "purify_pool": 0,
+      "sky": 0,
+      "sun_level": 1,
+      "totals": {
+        "impressions": 0,
+        "likes": 0,
+        "new_followers": 0,
+        "reposts": 0,
+        "saves": 0
+      },
+      "unavailable_metrics": [],
+      "yesterday_tally": {
+        "excluded": 0,
+        "neutral": 0,
+        "out_of_scope": 0,
+        "prickly": 0,
+        "soft": 0
+      }
+    },
+    "x": {
+      "blooms_total": 0,
+      "day": 0,
+      "fence": "iron_black",
+      "handle": "@fieldofw0rds",
+      "health": 50,
+      "last_post_at": "2026-11-20T14:46:12Z",
+      "last_post_url": "https://x.com/fieldofw0rds",
+      "milestones": {
+        "butterfly": false,
+        "rainbow": false
+      },
+      "plot_count": 3,
+      "plots": [
+        {
+          "id": 1,
+          "kind": "empty"
+        },
+        {
+          "id": 2,
+          "kind": "empty"
+        },
+        {
+          "id": 3,
+          "kind": "empty"
+        }
+      ],
+      "purify_pool": 0,
+      "sky": 0,
+      "sun_level": 1,
+      "totals": {
+        "impressions": 0,
+        "likes": 0,
+        "new_followers": 0,
+        "reposts": 0,
+        "saves": 0
+      },
+      "unavailable_metrics": [],
+      "yesterday_tally": {
+        "excluded": 0,
+        "neutral": 0,
+        "out_of_scope": 0,
+        "prickly": 0,
+        "soft": 0
+      }
+    }
   },
-  "rules": "impressions=sunlight, likes=water, positive comments=nutrition & health+, prickly comments=health- (recoverable, never instant death), reposts/shares/new followers=new seeds. Same-user spam has diminishing returns."
+  "league_name": "ことばのかだん",
+  "league_start": "2026-11-21",
+  "ranking": [],
+  "rules_ref": "RULES.md",
+  "schema_version": 2
 }
