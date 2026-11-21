@@ -5,10 +5,10 @@
       "blooms_total": 0,
       "day": 0,
       "fence": "sunset_wood",
-      "handle": "@fieldofw0rds",
+      "handle": "@kotobanokadan",
       "health": 50,
-      "last_post_at": "2026-11-20T15:51:17Z",
-      "last_post_url": "https://www.instagram.com/fieldofw0rds/",
+      "last_post_at": "2026-11-21T13:12:00+09:00",
+      "last_post_url": "https://www.instagram.com/p/Df_VoUcDn0r/",
       "milestones": {
         "butterfly": false,
         "rainbow": false
@@ -16,15 +16,15 @@
       "plot_count": 3,
       "plots": [
         {
-          "id": 1,
+          "id": 11,
           "kind": "empty"
         },
         {
-          "id": 2,
+          "id": 12,
           "kind": "empty"
         },
         {
-          "id": 3,
+          "id": 13,
           "kind": "empty"
         }
       ],
@@ -45,16 +45,30 @@
         "out_of_scope": 0,
         "prickly": 0,
         "soft": 0
-      }
+      },
+      "max_plots": 14,
+      "expansion_order": [
+        7,
+        8,
+        10,
+        14,
+        6,
+        9,
+        3,
+        2,
+        4,
+        1,
+        5
+      ]
     },
     "threads": {
       "blooms_total": 0,
       "day": 0,
       "fence": "white_black_corner",
-      "handle": "@fieldofw0rds",
+      "handle": "@kotobanokadan",
       "health": 50,
-      "last_post_at": null,
-      "last_post_url": null,
+      "last_post_at": "2026-11-21T13:12:00+09:00",
+      "last_post_url": "https://www.threads.com/@kotobanokadan/post/Df_Vur4DieW",
       "milestones": {
         "butterfly": false,
         "rainbow": false
@@ -62,15 +76,15 @@
       "plot_count": 3,
       "plots": [
         {
-          "id": 1,
+          "id": 11,
           "kind": "empty"
         },
         {
-          "id": 2,
+          "id": 12,
           "kind": "empty"
         },
         {
-          "id": 3,
+          "id": 13,
           "kind": "empty"
         }
       ],
@@ -91,16 +105,30 @@
         "out_of_scope": 0,
         "prickly": 0,
         "soft": 0
-      }
+      },
+      "max_plots": 14,
+      "expansion_order": [
+        7,
+        8,
+        10,
+        14,
+        6,
+        9,
+        3,
+        2,
+        4,
+        1,
+        5
+      ]
     },
     "x": {
       "blooms_total": 0,
       "day": 0,
       "fence": "iron_black",
-      "handle": "@fieldofw0rds",
+      "handle": "@kotobanokadan",
       "health": 50,
-      "last_post_at": "2026-11-20T14:46:12Z",
-      "last_post_url": "https://x.com/fieldofw0rds",
+      "last_post_at": "2026-11-21T13:11:30+09:00",
+      "last_post_url": "https://x.com/kotobanokadan",
       "milestones": {
         "butterfly": false,
         "rainbow": false
@@ -108,15 +136,15 @@
       "plot_count": 3,
       "plots": [
         {
-          "id": 1,
+          "id": 11,
           "kind": "empty"
         },
         {
-          "id": 2,
+          "id": 12,
           "kind": "empty"
         },
         {
-          "id": 3,
+          "id": 13,
           "kind": "empty"
         }
       ],
@@ -137,12 +165,27 @@
         "out_of_scope": 0,
         "prickly": 0,
         "soft": 0
-      }
+      },
+      "max_plots": 14,
+      "expansion_order": [
+        7,
+        8,
+        10,
+        14,
+        6,
+        9,
+        3,
+        2,
+        4,
+        1,
+        5
+      ]
     }
   },
   "league_name": "ことばのかだん",
   "league_start": "2026-11-21",
   "ranking": [],
   "rules_ref": "RULES.md",
-  "schema_version": 2
+  "schema_version": 2,
+  "layout_ref": "garden/garden_layout.json (#04: single bed, 14 spots 5-4-5)"
 }

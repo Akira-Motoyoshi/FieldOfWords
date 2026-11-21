@@ -11,18 +11,19 @@ from PIL import Image, ImageDraw
 
 W = H = 180
 SCALE = 6
-COLS, ROWS = 5, 3
+COLS, ROWS = 5, 3                  # rows alternate 5-4-5 (staggered) -> 14 slots
 CELL_W, CELL_H = 32, 20            # one flower position (invisible grid inside the bed)
 BED = (10, 70, 169, 141)           # single flower bed: x0, y0, x1, y1 (160 x 72)
-ANCHOR_X0, PITCH_X = 26, 32
+ROW_X = [[26, 58, 90, 122, 154], [42, 74, 106, 138], [26, 58, 90, 122, 154]]
 ANCHOR_Y = [90, 110, 130]          # sprite base line per row (row pitch 20)
+SLOTS = [(r, x) for r, xs in enumerate(ROW_X) for x in xs]   # id = index + 1
 HUD_Y = 148
-INITIAL_ACTIVE = [7, 8, 9]
-EXPANSION_ORDER = [6, 10, 13, 12, 14, 11, 15, 3, 2, 4, 1, 5]   # after the initial 3
+INITIAL_ACTIVE = [11, 12, 13]      # front row centre
+EXPANSION_ORDER = [7, 8, 10, 14, 6, 9, 3, 2, 4, 1, 5]   # after the initial 3
 
 def slot_anchor(i):
-    r, c = divmod(i - 1, COLS)
-    return ANCHOR_X0 + c * PITCH_X, ANCHOR_Y[r]
+    r, x = SLOTS[i - 1]
+    return x, ANCHOR_Y[r]
 
 def slot_rect(i):
     ax, ay = slot_anchor(i)
@@ -34,7 +35,7 @@ GLYPHS = {
  "G":["011","100","101","101","011"], "R":["110","101","110","101","101"],
  "E":["111","100","110","100","111"], "I":["111","010","010","010","111"],
  "S":["011","100","010","001","110"], "T":["111","010","010","010","010"],
- "H":["101","101","111","101","101"], "L":["100","100","100","100","111"],
+ "H":["101","101","111","101","101"], "K":["101","110","100","110","101"], "C":["011","100","100","100","011"], "P":["110","101","110","100","100"], "L":["100","100","100","100","111"],
  "O":["010","101","101","101","010"], "U":["101","101","101","101","111"],
  "N":["1001","1101","1011","1001","1001"], "M":["10001","11011","10101","10001","10001"],
  "0":["111","101","101","101","111"], "1":["010","110","010","010","111"],
@@ -85,6 +86,22 @@ def sky(d, theme):
     rnd = random.Random(7)
     for _ in range(14):
         d.point((rnd.randrange(W), rnd.randrange(14, 40)), fill=(255, 255, 255))
+
+def tint_sky(img, stage):
+    """Poison sky: blend the sky toward purple (stage 1-3), add gas dots (2+) and lightning (3)."""
+    k = [0, 0.30, 0.55, 0.80][stage]; tgt = (80, 40, 130)
+    reg = img.crop((0, 0, W, GROUND_Y0 + 1)); px = reg.load()
+    for y in range(reg.height):
+        for x in range(reg.width):
+            r, g, b = px[x, y][:3]
+            px[x, y] = (int(r + (tgt[0]-r)*k), int(g + (tgt[1]-g)*k), int(b + (tgt[2]-b)*k))
+    img.paste(reg, (0, 0)); d = ImageDraw.Draw(img); rnd = random.Random(21)
+    if stage >= 2:
+        for _ in range(20): d.point((rnd.randrange(W), rnd.randrange(14, 56)), fill=(154, 106, 180))
+    if stage >= 3:
+        for x0 in (40, 128):
+            pts = [(x0, 14), (x0 - 3, 22), (x0 + 1, 24), (x0 - 4, 34)]
+            d.line(pts, fill=(255, 250, 170))
 
 def ground(d, theme):
     rnd = random.Random(3)
@@ -141,24 +158,28 @@ def bed(d, theme):
         cx, cy = rnd.randrange(x0 + 4, x1 - 8), rnd.randrange(y0 + 4, y1 - 5)
         d.line([(cx, cy), (cx + 3, cy + 1), (cx + 5, cy + 3)], fill=(88,54,28))
 
-def hud(d):
+def hud(d, vals=None):
+    v = {"sun": 0.0, "water": 0.0, "nutrition": 0.0, "health": 0.5}
+    v.update(vals or {})
     d.rectangle([0, HUD_Y, W, H], fill=(28,30,52))
     d.line([(0, HUD_Y), (W, HUD_Y)], fill=(90,100,160))
     def bar(x, y, frac, col):
         d.rectangle([x, y, x + 51, y + 6], fill=(18,18,32), outline=(100,100,130))
         n = int(50 * frac)
         if n: d.rectangle([x + 1, y + 1, x + n, y + 5], fill=col)
-    sprite(d, 8, 152, SUN, CMAP);     bar(22, 153, 0.0, (255,220,60))
-    sprite(d, 96, 152, DROP, CMAP);   bar(110, 153, 0.0, (70,150,235))
-    sprite(d, 8, 165, SPROUT, CMAP);  bar(22, 165, 0.0, (80,200,90))
-    sprite(d, 96, 165, HEART, CMAP);  bar(110, 165, 0.5, (235,70,90))
+    sprite(d, 8, 152, SUN, CMAP);     bar(22, 153, v["sun"], (255,220,60))
+    sprite(d, 96, 152, DROP, CMAP);   bar(110, 153, v["water"], (70,150,235))
+    sprite(d, 8, 165, SPROUT, CMAP);  bar(22, 165, v["nutrition"], (80,200,90))
+    sprite(d, 96, 165, HEART, CMAP);  bar(110, 165, v["health"], (235,70,90))
 
-def scene(theme, label, day="DAY 0", with_hud=True):
+def scene(theme, label, day="DAY 0", with_hud=True, sky_stage=0, hud_vals=None):
     img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
-    sky(d, theme); ground(d, theme); fence(d, theme); bed(d, theme)
+    sky(d, theme)
+    if sky_stage: tint_sky(img, sky_stage)
+    ground(d, theme); fence(d, theme); bed(d, theme)
     banner(d, 5, 5, day)
     banner(d, (W - text_w(label)) // 2, 5, label)
-    if with_hud: hud(d)
+    if with_hud: hud(d, hud_vals)
     return img
 
 def save(img, path):
@@ -166,7 +187,7 @@ def save(img, path):
 
 def guide(path):
     img = scene("x", "SLOT GUIDE"); d = ImageDraw.Draw(img)
-    for i in range(1, COLS * ROWS + 1):
+    for i in range(1, len(SLOTS) + 1):
         x, y = slot_rect(i); ax, ay = slot_anchor(i)
         d.rectangle([x, y, x + CELL_W - 1, y + CELL_H - 1], outline=(255,0,200))
         draw_text(d, x + 2, y + 2, str(i), (255,255,255))
@@ -183,11 +204,11 @@ if __name__ == "__main__":
     save(scene("threads", "THREADS GARDEN"), f"{out}/day0_threads.png")
     guide(f"{out}/garden_layout_guide.png")
     layout = {
-        "native_size": W, "scale": SCALE, "grid": {"cols": COLS, "rows": ROWS},
+        "native_size": W, "scale": SCALE, "grid": {"rows": ROWS, "row_slots": [len(r) for r in ROW_X]},
         "bed_rect": list(BED), "cell_size": [CELL_W, CELL_H],
-        "slots": [{"id": i, "row": (i - 1) // COLS, "col": (i - 1) % COLS,
+        "slots": [{"id": i, "row": SLOTS[i - 1][0],
                    "cell_xy": list(slot_rect(i)), "anchor": list(slot_anchor(i))}
-                  for i in range(1, COLS * ROWS + 1)],
+                  for i in range(1, len(SLOTS) + 1)],
         "initial_active": INITIAL_ACTIVE,
         "expansion_order": EXPANSION_ORDER,
         "draw_order": "row 0 -> row 2, left -> right (back to front). Large sprites last within their row",
