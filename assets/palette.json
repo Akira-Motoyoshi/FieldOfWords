@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "date": "2026-11-21",
+  "good": {
+    "outline": "#94572a",
+    "center": "#80480e",
+    "stem_dark": "#2f8f3a",
+    "stem": "#55c24a",
+    "leaf_light": "#a8e86a",
+    "yellow_deep": "#f2b21c",
+    "yellow": "#ffe04a",
+    "cream": "#fff4c0",
+    "white": "#ffffff",
+    "pink_deep": "#ef6f9b",
+    "pink": "#ffb0cc",
+    "red": "#e8443a",
+    "orange": "#ff9a3a",
+    "sky": "#8fd4ff",
+    "blue": "#4c8ff0",
+    "gold": "#d49a1f"
+  },
+  "poison": {
+    "black": "#0e0a12",
+    "outline": "#3a1450",
+    "purple": "#682a8a",
+    "violet": "#8a44aa",
+    "blood_dark": "#4a0e16",
+    "blood": "#7a1c24",
+    "bruise": "#5a1e3e",
+    "sick_dark": "#2e3c1a",
+    "ditch": "#54682e",
+    "grey_green": "#76866a",
+    "grey": "#6c6874",
+    "grey_dark": "#3a3642",
+    "gas": "#9a6ab4",
+    "bone": "#b4ac9a",
+    "neon_lime": "#a8ff1e",
+    "neon_pink": "#ff2bd6"
+  },
+  "neon": [
+    "neon_lime",
+    "neon_pink"
+  ],
+  "rules": {
+    "sprite_colors": "each sprite uses ONLY its own palette (good OR poison); quantize after generation",
+    "good_outline": "good.outline (warm brown), 1px, never black",
+    "poison_outline": "poison.outline (deep purple) inner 1px + poison.black outer 1px",
+    "neon": "only neon_lime and neon_pink, as accents (spots, eyes, flames, mouth). Never on good flowers",
+    "purified": "purified flowers switch fully to the good palette",
+    "env": "sky, fence, bed, HUD are drawn by code and are outside these palettes",
+    "placement": "tall sprites (sunflower 32x48) prefer back rows; draw back to front"
+  },
+  "checks": {
+    "min_deltaE_good_vs_poison": 30.0,
+    "avg_L_good": 74.9,
+    "avg_L_poison_without_neon": 33.1
+  }
+}

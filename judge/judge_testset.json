@@ -1,0 +1,380 @@
+{
+ "version": 1,
+ "note": "28〜32は実文を載せず、内容の説明文で代用。コメント原文は保存しない運用のため、テスト後も出力に原文を残さない。",
+ "items": [
+  {
+   "id": 1,
+   "text": "毎日応援してます！がんばれ〜",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "応援"
+   }
+  },
+  {
+   "id": 2,
+   "text": "素敵な庭をありがとう",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "感謝"
+   }
+  },
+  {
+   "id": 3,
+   "text": "ラフレシア出てきて吹いたｗｗ",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "面白い"
+   }
+  },
+  {
+   "id": 4,
+   "text": "ドット絵のクオリティ高すぎ",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "褒め"
+   }
+  },
+  {
+   "id": 5,
+   "text": "🌻🌻🌻",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "存在"
+   }
+  },
+  {
+   "id": 6,
+   "text": "見てますよ",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "存在"
+   }
+  },
+  {
+   "id": 7,
+   "text": "次はサボテン見たいな",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "応援"
+   }
+  },
+  {
+   "id": 8,
+   "text": "明日も見に来ようかな",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "応援"
+   }
+  },
+  {
+   "id": 9,
+   "text": "別に悪くないんじゃない？",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft",
+     "neutral"
+    ],
+    "type": "褒め"
+   }
+  },
+  {
+   "id": 10,
+   "text": "悔しいけど毎日チェックしてる",
+   "kind": "text",
+   "expect": {
+    "effective": "soft",
+    "accept": [
+     "soft"
+    ],
+    "type": "応援"
+   }
+  },
+  {
+   "id": 11,
+   "text": "センスない庭",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "悪口"
+   }
+  },
+  {
+   "id": 12,
+   "text": "ご立派な庭ですこと（棒）",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "嫌味"
+   }
+  },
+  {
+   "id": 13,
+   "text": "構図が単調で色も雑",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "批判"
+   }
+  },
+  {
+   "id": 14,
+   "text": "どうせすぐ飽きるでしょ、賭ける？",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "煽り"
+   }
+  },
+  {
+   "id": 15,
+   "text": "こんな庭、全部枯れてしまえ",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "重い悪意"
+   }
+  },
+  {
+   "id": 16,
+   "text": "そのお花、咲いているうちはきれいだね",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "嫌味"
+   }
+  },
+  {
+   "id": 17,
+   "text": "頑張ってるのは伝わるよ、頑張ってるのは",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "批判"
+   }
+  },
+  {
+   "id": 18,
+   "text": "AIにしては上手だね",
+   "kind": "text",
+   "expect": {
+    "effective": "prickly",
+    "accept": [
+     "prickly"
+    ],
+    "type": "嫌味"
+   }
+  },
+  {
+   "id": 19,
+   "text": "毎日よく続くねえ（笑）",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "text": "これ何のゲームの絵？",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 21,
+   "text": "リポストした",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 22,
+   "text": "ふーん",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 23,
+   "text": "絵は好きだけど更新頻度が鬱陶しい",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "text": "色の使い方、もう少し彩度を上げたらどうでしょう",
+   "kind": "text",
+   "expect": {
+    "effective": "neutral",
+    "accept": [
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "text": "それは言い過ぎじゃない？",
+   "kind": "text",
+   "expect": {
+    "effective": "out_of_scope",
+    "accept": [
+     "out_of_scope"
+    ]
+   },
+   "context": "他のコメント投稿者への返信"
+  },
+  {
+   "id": 26,
+   "text": "運営の人ってどんな人なんだろ",
+   "kind": "text",
+   "expect": {
+    "effective": "out_of_scope",
+    "accept": [
+     "out_of_scope"
+    ]
+   }
+  },
+  {
+   "id": 27,
+   "text": "今日の晩ごはんカレーだった",
+   "kind": "text",
+   "expect": {
+    "effective": "out_of_scope",
+    "accept": [
+     "out_of_scope"
+    ]
+   }
+  },
+  {
+   "id": 28,
+   "text": "【説明文・テスト用】国籍・性別などの属性を理由に、運営者を侮辱する内容",
+   "kind": "description",
+   "expect": {
+    "effective": "excluded",
+    "accept": [
+     "excluded"
+    ]
+   }
+  },
+  {
+   "id": 29,
+   "text": "【説明文・テスト用】運営者や特定の個人を名指しして攻撃する内容",
+   "kind": "description",
+   "expect": {
+    "effective": "excluded",
+    "accept": [
+     "excluded"
+    ]
+   }
+  },
+  {
+   "id": 30,
+   "text": "【説明文・テスト用】危害を示唆して相手を脅す内容",
+   "kind": "description",
+   "expect": {
+    "effective": "excluded",
+    "accept": [
+     "excluded"
+    ]
+   }
+  },
+  {
+   "id": 31,
+   "text": "【説明文・テスト用】他者に自傷を促す内容",
+   "kind": "description",
+   "expect": {
+    "effective": "excluded",
+    "accept": [
+     "excluded"
+    ],
+    "exclusion": "self_harm",
+    "alert_owner": true
+   }
+  },
+  {
+   "id": 32,
+   "text": "【説明文・テスト用】庭への悪口に、属性への差別的な表現が混ざった内容",
+   "kind": "description",
+   "expect": {
+    "effective": "excluded",
+    "accept": [
+     "excluded"
+    ]
+   }
+  }
+ ]
+}

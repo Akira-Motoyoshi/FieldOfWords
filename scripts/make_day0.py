@@ -213,6 +213,7 @@ if __name__ == "__main__":
         "expansion_order": EXPANSION_ORDER,
         "draw_order": "row 0 -> row 2, left -> right (back to front). Large sprites last within their row",
         "sprite_rule": "sprite bottom-center = slot anchor. Normal 32x32, tall 32x48 (sunflower), large 48x48 (rafflesia, black-hole flower, mold) may overlap neighbours by up to 8px",
+        "large_sprite_slot_order": [3, 1, 5, 2, 4],
         "hud_y": HUD_Y,
     }
     json.dump(layout, open(f"{out}/garden_layout.json", "w"), ensure_ascii=False, indent=2)
