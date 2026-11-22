@@ -81,10 +81,14 @@ def lines_for(name, g, gardens, day, compact):
         L.append((2, f"あと{k}件のふわふわで{POISON_NAME[oldest]}が{PURIFIED_NAME[oldest]}に変わります"))
     if ev.get("bloomed"):
         L.append((3, "・".join(GOOD_NAME[s] for s in ev["bloomed"][:2]) + "が開花しました"))
-    if "reposts" not in unavailable and g.get("totals", {}).get("reposts") is not None and not g.get("milestones", {}).get("rainbow"):
-        left = MILESTONES["rainbow"] - g["totals"]["reposts"]
-        if left > 0: L.append((4, f"リポスト{g['totals']['reposts']}件、虹まであと{left}件"))
+    ms = g.get("milestones", {}); rp = g.get("totals", {}).get("reposts")
+    for k in ev.get("milestones", []):                                   # reached today (set by Muse)
+        L.append((1, {"rainbow": "空に虹がかかりました", "butterfly": "蝶が舞い始めました"}.get(k, "")))
+    if "reposts" not in unavailable and rp is not None:
+        target, label = ((MILESTONES["rainbow"], "虹") if not ms.get("rainbow") else (MILESTONES["butterfly"], "蝶") if not ms.get("butterfly") else (None, ""))
+        if target and target - rp > 0: L.append((4, f"リポスト{rp}件、{label}まであと{target - rp}件"))
     L.append((0, rank_line(gardens, compact)))
+    L = [(pr, t) for pr, t in L if t]
     L.append((1, CLOSING))
     L.append((0, HASHTAG))
     return L

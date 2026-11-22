@@ -11,7 +11,7 @@ for each plot at its slot anchor (bottom-centre) and writes, per garden:
 and <out>/report.json (drawn counts, missing sprites, sky stage). Missing sprites are
 skipped and reported - the run never stops because of them.
 """
-import argparse, json, os, zlib
+import argparse, json, math, os, random, zlib
 from PIL import Image
 import make_day0 as G
 
@@ -32,6 +32,45 @@ def choose_slot(species, occupied, plot_count=3):
     return next((i for i in order if i not in occupied), None)
 ADULT_AFTER_DAYS = 1                                # poison plot shows adult form from age_days >= 1
 SKY_WORDS = ["水色", "薄紫がかっている", "紫色", "暗い紫で稲妻が走っている"]
+
+# ---- milestone effects (state: gardens.<g>.milestones.rainbow / .butterfly = true; numbers 10 / 20 are decided by Muse, not here)
+RAINBOW_ANCHOR = (90, 47)            # bottom-centre of the 72x36 rainbow: arcs rise from the fence top, under the banners
+BUTTERFLY_SPOTS = [(30, 58), (156, 62), (100, 54), (50, 86), (132, 92), (88, 72)]   # centres; picked by day so they move daily
+
+def butterfly_spots(day):
+    return [BUTTERFLY_SPOTS[(day * 2 + k * 3) % len(BUTTERFLY_SPOTS)] for k in (0, 1)]   # k=0 species A, k=1 species B (never the same spot)
+
+def burst(img, cx, cy, rx, ry, seed, n=12):
+    """White plus-shaped sparkles on the day a milestone is reached (events_today.milestones). Code-drawn, no assets."""
+    rnd = random.Random(seed)
+    for i in range(n):
+        a = i * 2 * math.pi / n + rnd.random() * .4; r = 0.55 + rnd.random() * .45
+        x, y = int(cx + rx * r * math.cos(a)), int(cy + ry * r * math.sin(a))
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+            if 0 <= x + dx < G.W and 0 <= y + dy < G.H and (dx == dy == 0 or i % 2 == 0): img.putpixel((x + dx, y + dy), (255, 255, 255, 255))
+
+def effects_under(img, garden, assets, frame, cache, report):
+    """Rainbow: behind the plants, in front of the sky and fence."""
+    ms = garden.get("milestones", {}); ev = garden.get("events_today", {}).get("milestones", [])
+    if ms.get("rainbow"):
+        spr = load(assets, "fx_rainbow", frame, cache)
+        if spr is None:
+            if frame == 1: report["missing"].append("fx_rainbow")
+        else:
+            img.alpha_composite(spr, (RAINBOW_ANCHOR[0] - spr.width // 2, RAINBOW_ANCHOR[1] - spr.height))
+            if "rainbow" in ev: burst(img, RAINBOW_ANCHOR[0], RAINBOW_ANCHOR[1] - 18, 44, 22, seed=11 + frame)
+
+def effects_over(img, garden, assets, frame, cache, report):
+    """Butterflies: in front of the plants. Two species, positions move with the day."""
+    ms = garden.get("milestones", {}); ev = garden.get("events_today", {}).get("milestones", [])
+    if ms.get("butterfly"):
+        for k, (name, (cx, cy)) in enumerate(zip(("fx_butterfly_a", "fx_butterfly_b"), butterfly_spots(garden.get("day", 0)))):
+            spr = load(assets, name, frame, cache)
+            if spr is None:
+                if frame == 1: report["missing"].append(name)
+                continue
+            img.alpha_composite(spr, (cx - spr.width // 2, cy - spr.height // 2))
+            if "butterfly" in ev: burst(img, cx, cy, 11, 9, seed=31 + k + frame, n=8)
 
 TULIP_COLORS = ["red", "yellow", "blue"]
 
@@ -91,7 +130,9 @@ def alt_text(theme, garden, n_poison, n_good, n_bloom):
         if n_good: parts.append(f"良い花が{n_good}輪" + (f"（うち開花{n_bloom}輪）" if n_bloom else ""))
         if n_poison: parts.append(f"毒の花が{n_poison}輪")
         body = "花壇には" + "、".join(parts) + "育っている"
-    return f"ドット絵の庭。{body}。空は{SKY_WORDS[sky_stage(n_poison)]}。柵は{fence}。"
+    ms = garden.get("milestones", {})
+    extra = ("空に虹がかかっている。" if ms.get("rainbow") else "") + ("蝶が舞っている。" if ms.get("butterfly") else "")
+    return f"ドット絵の庭。{body}。空は{SKY_WORDS[sky_stage(n_poison)]}。{extra}柵は{fence}。"
 
 def hud_values(garden):
     h = {"sun": min(garden.get("sun_level", 0) / 5, 1.0),
@@ -105,6 +146,7 @@ def render(theme, garden, assets, frame, cache, report):
     st = sky_stage(n_poison)
     img = G.scene(theme, label, day=f"DAY {garden.get('day', 0)}", sky_stage=st,
                   hud_vals=hud_values(garden)).convert("RGBA")
+    effects_under(img, garden, assets, frame, cache, report)
     def key(p):
         r, _ = G.SLOTS[p["id"] - 1]; name = sprite_name(p, theme) or ""
         return (r, any(t in name for t in LARGE), G.SLOTS[p["id"] - 1][1])
@@ -115,6 +157,7 @@ def render(theme, garden, assets, frame, cache, report):
             continue
         ax, ay = G.slot_anchor(p["id"])
         img.alpha_composite(spr, (ax - spr.width // 2, ay - spr.height))
+    effects_over(img, garden, assets, frame, cache, report)
     return img.convert("RGB"), st, n_poison, drawn
 
 def main():
@@ -139,6 +182,7 @@ def main():
         report["warnings"] = [f"large sprite {sprite_name(p)} in slot {p['id']} (row {G.SLOTS[p['id']-1][0]}): hides plants behind it"
                               for p in drawn if is_large(sprite_name(p) or "") and G.SLOTS[p["id"] - 1][0] != 0]
         report.update({"sky_stage": st, "poison_total": n_poison, "drawn": len(drawn),
+                       "effects": {k: bool(garden.get("milestones", {}).get(k)) for k in ("rainbow", "butterfly")},
                        "missing": sorted(set(report["missing"]))})
         reports[name] = report
     json.dump(reports, open(f"{a.out}/report.json", "w"), ensure_ascii=False, indent=2)
