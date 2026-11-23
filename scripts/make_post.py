@@ -79,6 +79,10 @@ def lines_for(name, g, gardens, day, compact):
         k = max(1, 3 - g.get("purify_pool", 0) % 3)
         oldest = shown[0]["species"]
         L.append((2, f"あと{k}件のふわふわで{POISON_NAME[oldest]}が{PURIFIED_NAME[oldest]}に変わります"))
+    if ev.get("planted"):
+        L.append((1, "・".join(GOOD_NAME[s] for s in ev["planted"][:2]) + "の芽が出ました"))
+    if ev.get("grown"):
+        L.append((3, "・".join(GOOD_NAME[s] for s in ev["grown"][:2]) + "が育ちました"))
     if ev.get("bloomed"):
         L.append((3, "・".join(GOOD_NAME[s] for s in ev["bloomed"][:2]) + "が開花しました"))
     ms = g.get("milestones", {}); rp = g.get("totals", {}).get("reposts")

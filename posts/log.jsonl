@@ -1,0 +1,24 @@
+{"date":"2026-11-20","day":0,"platform":"x","buffer_post_id":"6b005d3344831c50e4d26141","status":"sent","sent_at":"2026-11-20T14:46:12Z","image_url":"https://files.catbox.moe/f6e991.png","permalink":null,"note":"X status ID unresolved; profile https://x.com/fieldofw0rds"}
+{"date":"2026-11-20","day":0,"platform":"instagram","media_fbid":"18131103451894391","status":"sent","profile":"https://www.instagram.com/fieldofw0rds/","permalink":null,"note":"shortcode unresolved"}
+{"date":"2026-11-21","platform":"instagram","action":"delete_old_day0","permalink":"https://www.instagram.com/p/Df96UbBDlJh/","status":"deleted","note":"旧文面Day 0投稿を削除。プロフィールは投稿0件に戻った"}
+{"date":"2026-11-21","platform":"threads","action":"bio_set","status":"done","note":"自己紹介にAI自動運用の開示文を設定"}
+{"date":"2026-11-21","platform":"instagram","action":"bio_set","status":"done","note":"自己紹介にAI自動運用の開示文を設定"}
+{"date":"2026-11-21","platform":"x","action":"delete_old_day0_and_bio","status":"pending","note":"Xの一時制限（403）のため未実施。旧Day 0投稿はまだ公開中。12:15のローンチジョブで再試行"}
+{"date":"2026-11-21","platform":"instagram","action":"username_change","status":"done","note":"@fieldofw0rds → @kotobanokadan（確認済み）"}
+{"date":"2026-11-21","platform":"threads","action":"username_change","status":"done","note":"@fieldofw0rds → @kotobanokadan（確認済み）"}
+{"date":"2026-11-21","platform":"x","action":"username_change","status":"pending","note":"保管庫のXログインが別アカウント（個人用）のためサインインできず未実施。正しいログイン登録待ち"}
+{"date":"2026-11-21","platform":"x","action":"username_change","status":"done","note":"@fieldofw0rds → @kotobanokadan（ユーザーが自分の端末で実施・完了報告）"}
+{"date":"2026-11-21","platform":"x","action":"delete_post","status":"done","note":"旧Day 0投稿をユーザーが削除"}
+{"date":"2026-11-21","platform":"x","action":"bio_set","status":"done","note":"AI自動運用の開示をユーザーが設定"}
+{"date":"2026-11-21","platform":"instagram","action":"post_day0","status":"sent","permalink":"https://www.instagram.com/p/Df_VoUcDn0r/","media_fbid":"18135495679795099","note":"Day 0新文面（#ことばのかだん付き）。ジョブ側でもう1件（Df_VMADDu7i）が先行投稿されており重複削除をブラウザ作業中"}
+{"date":"2026-11-21","platform":"threads","action":"post_day0","status":"sent","permalink":"https://www.threads.com/@kotobanokadan/post/Df_Vur4DieW","post_id":"18150244759501365","note":"Day 0新文面（#ことばのかだん付き）"}
+{"date":"2026-11-21","platform":"instagram","action":"delete_duplicate_day0","status":"done","note":"重複したDf_VMADDu7iを削除。残存はDf_VoUcDn0rの1件のみ（確認済み）"}
+{"date":"2026-11-21","platform":"x","action":"post_day0","status":"sent","permalink":"https://x.com/kotobanokadan","buffer_post_id":"6b0119f2d9cbb430a11a8281","image_url":"https://files.catbox.moe/ar4q5r.png","note":"Buffer shareNow。Xの280字制限のため見出し行【ことばのかだん Day 0】のみ省略（297→271ウェイト）。本文・ハッシュタグは同一"}
+{"date":"2026-11-21","platform":"x","action":"day0_permalink_confirmed","status":"done","permalink":"https://x.com/kotobanokadan/status/2123992681005113479","note":"Buffer metricsで取得: Impressions 18 / Reactions 3 / Reposts 1 / Comments 0（2026-11-21 23:45時点）。数字は無料プランでもAPI取得可"}
+{"date": "2026-11-22", "day": 1, "platform": "instagram", "action": "post_day1", "status": "sent", "permalink": "https://www.instagram.com/p/DgBzFBAD4Cl/", "media_fbid": "18127630546701818", "note": "Day 1。金の薔薇の芽→茎。ふわふわ1・中立1。"}
+{"date": "2026-11-22", "day": 1, "platform": "threads", "action": "post_day1", "status": "sent", "permalink": "https://www.threads.com/@kotobanokadan/post/DgBzVl4j50V", "post_id": "18133507453693511", "note": "Day 1。まだ土だけ。反応ゼロ。末尾ハッシュタグはThreadsのトピックタグに変換される（Day 0と同様）。"}
+{"date": "2026-11-22", "day": 1, "platform": "x", "action": "post_day1", "status": "sent", "buffer_post_id": "6b025ca202479690921ce9d3", "image_url": "https://files.catbox.moe/efohce.png", "permalink": null, "note": "Day 1。Buffer shareNow、画像つき。野の花の芽→茎。X status URL は未解決（Day 0と同様、後で metrics/プロフィールから確認）。"}
+{"date": "2026-11-22", "day": 1, "platform": "x", "action": "day1_permalink_confirmed", "status": "done", "permalink": "https://x.com/kotobanokadan/status/2124339165038801376", "note": "Buffer externalLink から解決（Day 2 実行時に確認）。numeric 形式は https://x.com/2123763719784255488/status/2124339165038801376"}
+{"date": "2026-11-23", "day": 2, "platform": "x", "action": "post_day2", "status": "sent", "buffer_post_id": "6b03b03cd864a0110518bc2d", "image_url": "https://files.catbox.moe/qsi7yw.png", "permalink": "https://x.com/kotobanokadan/status/2124703810190704666", "note": "Day 2。Buffer shareNow、画像つき。野の花の芽（slot 12）＋野の花が蕾に成長。Xコメント本文を x_thread で検証完了（Day 0投稿の2件を読めた）のため comment_text を unavailable_metrics から外した。"}
+{"date": "2026-11-23", "day": 2, "platform": "instagram", "action": "post_day2", "status": "sent", "permalink": "https://www.instagram.com/p/DgEZQcwDrtP/", "media_fbid": "17929060143201468", "note": "Day 2。金の薔薇が蕾に成長。対象外コメント1件。"}
+{"date": "2026-11-23", "day": 2, "platform": "threads", "action": "post_day2", "status": "sent", "permalink": "https://www.threads.com/@kotobanokadan/post/DgEZccyjp4R", "post_id": "18361492282220839", "note": "Day 2。まだ土だけ。反応なし。"}

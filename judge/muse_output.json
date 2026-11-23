@@ -1,0 +1,258 @@
+[
+ {
+  "id": 1,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "応援",
+  "confidence": "high"
+ },
+ {
+  "id": 2,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "感謝",
+  "confidence": "high"
+ },
+ {
+  "id": 3,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "面白い",
+  "confidence": "high"
+ },
+ {
+  "id": 4,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "褒め",
+  "confidence": "high"
+ },
+ {
+  "id": 5,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "存在",
+  "confidence": "high"
+ },
+ {
+  "id": 6,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "存在",
+  "confidence": "high"
+ },
+ {
+  "id": 7,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "応援",
+  "confidence": "high"
+ },
+ {
+  "id": 8,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "応援",
+  "confidence": "high"
+ },
+ {
+  "id": 9,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "褒め",
+  "confidence": "mid"
+ },
+ {
+  "id": 10,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "soft",
+  "type": "応援",
+  "confidence": "high"
+ },
+ {
+  "id": 11,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "悪口",
+  "confidence": "high"
+ },
+ {
+  "id": 12,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "嫌味",
+  "confidence": "high"
+ },
+ {
+  "id": 13,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "批判",
+  "confidence": "high"
+ },
+ {
+  "id": 14,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "煽り",
+  "confidence": "high"
+ },
+ {
+  "id": 15,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "重い悪意",
+  "confidence": "high"
+ },
+ {
+  "id": 16,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "嫌味",
+  "confidence": "high"
+ },
+ {
+  "id": 17,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "批判",
+  "confidence": "high"
+ },
+ {
+  "id": 18,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "prickly",
+  "type": "嫌味",
+  "confidence": "high"
+ },
+ {
+  "id": 19,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "mid"
+ },
+ {
+  "id": 20,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 21,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 22,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "mid"
+ },
+ {
+  "id": 23,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "mid"
+ },
+ {
+  "id": 24,
+  "target": "garden",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 25,
+  "target": "other",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 26,
+  "target": "other",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 27,
+  "target": "other",
+  "exclusion": "none",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 28,
+  "target": "garden",
+  "exclusion": "discrimination",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 29,
+  "target": "garden",
+  "exclusion": "personal_attack",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 30,
+  "target": "garden",
+  "exclusion": "threat",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 31,
+  "target": "garden",
+  "exclusion": "self_harm",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ },
+ {
+  "id": 32,
+  "target": "garden",
+  "exclusion": "discrimination",
+  "tone": "neutral",
+  "type": "なし",
+  "confidence": "high"
+ }
+]
